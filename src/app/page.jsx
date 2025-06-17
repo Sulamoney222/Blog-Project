@@ -1,14 +1,14 @@
 'use client'
 import Image from "next/image";
-import TechImage from "../utils/tech-a.png"; // Correct way to import a local image
+import TechImage from "../utils/tech-a.png"; 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function Home() {
   
   useGSAP(()=>{
-  gsap.to('#read', {translateX:0, opacity:1})
-  gsap.to('#img', {translateY:0, opacity:1})
+  gsap.to('#read', {translateX:0, opacity:1, duration:2})
+  gsap.to('#img', {translateY:0, opacity:1, duration:2})
   },[])
    
   return (
@@ -29,13 +29,14 @@ export default function Home() {
         </div>
 
         {/* Image Section */}
-        <div className="flex justify-center translate-y-16 opacity-0" id="read">
+        <div className="flex justify-center " >
           <Image
             src={TechImage}
             alt="Tech Illustration"
             width={500}
             height={500}
-            className="w-full h-auto max-w-md"
+            id="img"
+            className="w-full h-auto max-w-md -translate-y-24"
             priority
           />
         </div>
