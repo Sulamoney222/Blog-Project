@@ -24,3 +24,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.remr{
+  @apply text-red-400
+}
+
+#re{
+  background: linear-gradient(to bottom, rgb(1, 1, 92), white);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
+
