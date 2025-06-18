@@ -1,13 +1,17 @@
+'use client'
 import React from 'react'
 
-const Categories = () => {
+const Category = ({params}) => {
+  console.log('Hello');
+  console.log(params);
+  
   return (
     <div>
       
-        <h3>Categories</h3>
+        <h3>gg</h3>
       
     </div>
   )
 }
 
-export default Categories
+export default Category
