@@ -76,7 +76,7 @@ const Portfolio = () => {
               data-aos="fade-up"
             >
               {/* Image Container */}
-              <div className="relative w-full h-80 aspect-[4/3]">
+              <div className="relative border w-full h-80 aspect-[4/3]">
                 <Image
                   src={img}
                   alt={text}
