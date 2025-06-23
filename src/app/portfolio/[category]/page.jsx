@@ -6,7 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Category = ({ params }) => {
-  const category = params.category;
+  const category = params.category; 
   const categoryTitle = category.replace(/-/g, ' ').toUpperCase();
   const containerRef = useRef(null);
 
