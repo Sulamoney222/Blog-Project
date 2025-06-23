@@ -3,7 +3,7 @@ import React from 'react'
 const PortLayout = ({children}) => {
   return (
     <div>
-        <h2>Hey There</h2>
+        <h2 >Portfolio</h2>
       {children}
     </div>
   )

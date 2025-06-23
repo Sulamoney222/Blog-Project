@@ -33,6 +33,7 @@ const Category = ({ params }) => {
     <section
       ref={containerRef}
       className="w-full px-6 py-16 max-w-7xl mx-auto"
+      
     >
       {/* Heading */}
       <h2
