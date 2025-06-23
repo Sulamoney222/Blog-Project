@@ -2,13 +2,31 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { items } from './data';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { notFound } from 'next/navigation';
+import Image from 'next/image';
+
+
+
+
+//getting the datas of arrays
+  const getData=(cat)=>{
+    const data = items[cat]
+    if(data){
+      return data
+    } else{
+      notFound
+    }
+  }
 
 const Category = ({ params }) => {
+  const allItems = getData(params.category)
   const category = params.category; 
   const categoryTitle = category.replace(/-/g, ' ').toUpperCase();
   const containerRef = useRef(null);
+  
 
   // GSAP animation
   useGSAP(() => {
@@ -29,6 +47,8 @@ const Category = ({ params }) => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  
+
   return (
     <section
       ref={containerRef}
@@ -44,14 +64,21 @@ const Category = ({ params }) => {
       </h2>
 
       {/* Content Block */}
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+     {
+      allItems.map((item)=>{
+        const {id,img,desc,title}= item
+
+        return(
+           <div 
+           key={id}
+           className="grid md:grid-cols-2 gap-10 items-center">
         {/* Image Placeholder */}
         <div
           id="category-image"
           className="w-full h-64 md:h-96 bg-gray-200 rounded-lg flex items-center justify-center text-lg shadow"
           data-aos="fade-right"
         >
-          Image Placeholder
+          <Image width={40} height={40} src={img}/>
         </div>
 
         {/* Text Content */}
@@ -61,9 +88,7 @@ const Category = ({ params }) => {
           data-aos="fade-left"
         >
           <p className="text-base md:text-lg leading-relaxed ">
-            Welcome to our <strong>{categoryTitle}</strong> category. Here, we explore cutting-edge advancements,
-            best practices, and tools in the field of {category.replace(/-/g, ' ')}. From AI-driven solutions
-            to scalable web development, our focus is to keep you informed and inspired by the latest in modern technology.
+            {desc}
           </p>
           <p className="text-base md:text-lg leading-relaxed ">
             Whether you're a developer, entrepreneur, or tech enthusiast, this space is designed to provide deep insights,
@@ -74,6 +99,10 @@ const Category = ({ params }) => {
           </button>
         </div>
       </div>
+        )
+
+      })
+     }
     </section>
   );
 };
