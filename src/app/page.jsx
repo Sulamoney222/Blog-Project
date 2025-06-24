@@ -4,6 +4,8 @@ import TechImage from "../utils/tech-a.png";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
+//mongodb+srv://sulaimonnasiru297:sula284979@cluster0.fojhrpp.mongodb.net/
+
 export default function Home() {
   
   useGSAP(()=>{

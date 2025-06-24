@@ -23,8 +23,8 @@ import Image from 'next/image';
 
 const Category = ({ params }) => {
   const allItems = getData(params.category)
-  const category = params.category; 
-  const categoryTitle = category.replace(/-/g, ' ').toUpperCase();
+ // const category = params.category; 
+  const categoryTitle = params.category.replace(/-/g, ' ').toUpperCase();
   const containerRef = useRef(null);
   
 
